@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smriti ❤️ Memories</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      color: #eee;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.2rem;
+      text-align: center;
+      margin: 40px 20px 10px;
+      color: #f2f2f2;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+    .intro-message {
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #ccc;
+      padding: 0 20px;
+      line-height: 1.8;
+      animation: fadeIn 2s ease;
+    }
+
+    .photo-tab {
+      display: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      min-height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      overflow-y: auto;
+      animation: fadeIn 0.4s ease;
+      padding: 40px 20px;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      margin: auto;
+      text-align: center;
+      max-width: 700px;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .glass-box img {
+      max-width: 100%;
+      height: auto;
+      max-height: 80vh;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .glass-box img:hover {
+      transform: scale(1.02);
+    }
+
+    .message {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
+
+    .nav-buttons {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-buttons button {
+      padding: 10px 25px;
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-buttons button:hover {
+      transform: scale(1.05);
+    }
+
+    .view-btn-container {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .view-btn {
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      border-radius: 40px;
+      border: none;
+      background: linear-gradient(to right, #fc466b, #3f5efb);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .view-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .view-btn::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      background: rgba(255,255,255,0.2);
+      transform: skewX(-20deg);
+      transition: 0.5s;
+    }
+
+    .view-btn:hover::after {
+      left: 100%;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;} to {opacity: 1;}
+    }
+    @keyframes zoomIn {
+      from {transform: scale(0.9);} to {transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Background Music Placeholder -->
+  <audio autoplay loop>
+    <source src="your-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- 🌟 Main Content -->
+  <h1>Hey Smriti Ji ❤️</h1>
+  <div class="intro-message">
+    Arey madam ji welcome 🎉... <br>Janina kamon lagbe tao asha korchi bhaloi lagbe 🙃. Bhalo na laguk kharap atleast lagbe na 💫... <br>
+    Kichu photo ar tar sathe onek memory attach korar try korechi 💖... <br> Janina kamon hoyeche kichu ulto palta hole aktu manage kore neben... <br> Ar ha photo gulo te clicking korle boro hoye jabe. Bhalo kore dekhte chaile click koris... <br> <br>
+    I love you 💝
+    
+    </div>
+
+  <!-- 🖼️ Photo Tabs -->
+  <div class="photo-tab" id="photo1">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/g2fZ7DLv/IMG-20250203-102828.jpg/600x800?text=Photo+1" onclick="openLightbox(this.src)">
+      <div class="message">Akta chagol ar akta bandor jokhon prem kore 🤭❤️</div>
+      <div class="nav-buttons">
+        <button onclick="closeAllTabs()">🏠 Home</button>
+        <button onclick="showTab('photo2')">Next ➡️</button>
+         </div>
+    </div>
+  </div>
+
+  <div class="photo-tab" id="photo2">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/6pHBc2TF/IMG-20250510-WA0014.jpg/600x800?text=Photo+2" onclick="openLightbox(this.src)">
+      <div class="message">Babba Miss bhodro 🤭</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo1')">⬅️ Back</button>
+        <button onclick="showTab('photo3')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-tab" id="photo3">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/NfMJTKqK/IMG-20241013-WA0008.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Kota Amul Bol dakhi (Kana) 😂</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo2')">⬅️ Back</button>
+        <button onclick="showTab('photo4')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo4">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/d0Kg8Jjg/1f643.png/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Abar kichu Personal Jinis dekhai. Mane Personal Memory Ar ki 🙃 </div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo3')">⬅️ Back</button>
+        <button onclick="showTab('photo5')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo5">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/Ssc6cpV1/IMG-20250524-WA0012.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">First Hug 💝</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo4')">⬅️ Back</button>
+        <button onclick="showTab('photo6')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo6">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/RZGbnwqJ/IMG-20250524-WA0009.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Parents Day 💕</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo5')">⬅️ Back</button>
+        <button onclick="showTab('photo7')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo7">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/C5jcMqW1/IMG-20250524-WA0016.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Ata konta re bujhtei pari ni 😅</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo6')">⬅️ Back</button>
+        <button onclick="showTab('photo8')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo8">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/ZqxYN7pF/IMG-20250524-WA0014.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">T.C. katate asli sei din... Ar sei j niche program hocchilo ar ami ar tui...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo7')">⬅️ Back</button>
+        <button onclick="showTab('photo9')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo9">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/bvDWcsNG/IMG-20250524-WA0015.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Ai j ai jai ga ta...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo8')">⬅️ Back</button>
+        <button onclick="showTab('photo10')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo10">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/6pGfBRnN/IMG-20250524-WA0021.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message"> CCTV ar teachers der lukiye joto tuku paoa jai...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo9')">⬅️ Back</button>
+        <button onclick="showTab('photo11')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo11">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/HLzcmsZg/IMG-20250524-WA0019.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Just a handshake...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo10')">⬅️ Back</button>
+        <button onclick="showTab('photo12')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo12">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/BQFg2kQK/IMG-20250524-WA0020.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Aro akta parents day...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo11')">⬅️ Back</button>
+        <button onclick="showTab('photo13')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo13">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/1zjptcft/IMG-20240329-160807.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Chor Chor 🤭</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo12')">⬅️ Back</button>
+        <button onclick="showTab('photo14')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo14">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/28rBCX2G/IMG-20241109-WA0009.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Miss pookie 😘</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo13')">⬅️ Back</button>
+        <button onclick="showTab('photo15')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo15">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/rmgmQhKK/IMG-20250730-141949.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">O baba, a j Miss Aesthetic 🥰</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo14')">⬅️ Back</button>
+        <button onclick="showTab('photo16')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo16">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/6pTm3TdS/IMG-20250129-194012.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Aaye haye miss gorgeous 😍</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo15')">⬅️ Back</button>
+        <button onclick="showTab('photo17')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo17">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/k4Csx5b7/IMG-20250324-WA0033.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Ki jano bolchilis mukh bhenge jai na ki hoy, Koi dekhi ki hoise 🤭😂...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo16')">⬅️ Back</button>
+        <button onclick="showTab('photo18')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo18">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/R0BKYDVR/IMG-20250730-185404.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Ai chagol jiv dekhas kan...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo17')">⬅️ Back</button>
+        <button onclick="showTab('photo19')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo19">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/7LHb08Zp/IMG-20250730-185422.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Abar sei 😡... Kat dalega...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo18')">⬅️ Back</button>
+        <button onclick="showTab('photo20')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo20">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/KYpBJr4c/IMG-20250730-185850.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Aye haye kya kiss hai meri jaan 🤭🥰...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo19')">⬅️ Back</button>
+        <button onclick="showTab('photo21')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  <div class="photo-tab" id="photo21">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/k5RgPxfg/IMG-20250730-185840.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Ha re mukh lukanor ar jinis pas ni 😂</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo20')">⬅️ Back</button>
+        <button onclick="showTab('photo22')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  <div class="photo-tab" id="photo22">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/g02BxDfG/IMG-20250730-185821.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Amar chagol 😘</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo21')">⬅️ Back</button>
+        <button onclick="showTab('photo23')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo23">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/W1SckbVs/IMG-20250203-110611.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Aaaaaaa sari pora ta sekh sala chagol 🤪...</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo22')">⬅️ Back</button>
+        <button onclick="showTab('photo24')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  <div class="photo-tab" id="photo24">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/DzK48679/IMG-20240609-WA0039.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Good Good 😊... Sona amar 😘</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo23')">⬅️ Back</button>
+        <button onclick="showTab('photo25')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="photo-tab" id="photo25">
+    <div class="glass-box">
+      <img src="https://i.postimg.cc/HssqC15K/IMG-20250510-WA0016.jpg/600x800?text=Photo+3" onclick="openLightbox(this.src)">
+      <div class="message">Ar ai jo apnar favourite photo 🥰</div>
+      <div class="nav-buttons">
+        <button onclick="showTab('photo24')">⬅️ Back</button>
+        <button onclick="showTab('photo26')">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="photo-tab" id="photo26">
+ <div class="glass-box">
+  <iframe 
+    src="https://archive.org/embed/lv_0_20250205232523" 
+    width="100%" 
+    height="400" 
+    frameborder="0" 
+    webkitallowfullscreen="true" 
+    mozallowfullscreen="true" 
+    allowfullscreen>
+  </iframe>
+  <div class="message">Sei memory ta madam, mone porche 🥰💕</div>
+  <div class="nav-buttons">
+    <button onclick="showTab('photo25')">⬅️ Back</button>
+          <button onclick="closeAllTabs()">🏠 Home</button>
+     </div>
+   </div>
+</div>
+
+
+  <!-- 🔍 Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" />
+  </div>
+
+  <!-- 📸 View Memories Button -->
+  <div class="view-btn-container">
+    <button class="view-btn" onclick="showTab('photo1')">📸 View Memories</button>
+  </div>
+
+  <!-- 🔧 Scripts -->
+  <script>
+    function showTab(id) {
+      closeAllTabs();
+      document.getElementById(id).style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+    function closeAllTabs() {
+      document.querySelectorAll('.photo-tab').forEach(tab => tab.style.display = 'none');
+    }
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
